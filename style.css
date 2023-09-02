@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+
+/* 
+    Color Palette
+    https://coolors.co/palette/ccd5ae-e9edc9-fefae0-faedcd-d4a373 
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans' ,monospace;
+    background-color: #FDF9F3;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    border: 2px solid #2C292D;
+    background-color: #FAEDCD;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-shadow: 1px 2px 2px hsl(0deg 0% 0% / 0.45);
+}
+
+input {
+    width: 180px;
+    height: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: solid 1px #2C292D;
+    border-radius: 4px;
+}
+input:focus {
+    border-width: 2px;
+}
+
+label {
+    /* border: 2px solid red; */
+    margin-bottom: 5px;
+}
+
+.fila {
+    /* border: 2px solid #2C292D; */
+    padding: 10px;
+    margin: 5px;
+}
+
+.fila.uno {
+    display: flex;
+    gap: 20px;
+}
+.fila.uno .columna.uno {
+    display: flex;
+    flex-direction: column;
+}
+.fila.uno .columna.dos {
+    display: flex;
+    flex-direction: column;
+}
+
+.fila.dos {
+    display: flex;
+    flex-direction: column;
+}
+.fila.dos input {
+    width: 855px;;
+}
+
+.fila.tres {
+    display: flex;
+    gap: 20px;
+}
+.fila.tres .columna.uno {
+    /* border: 2px solid black; */
+    display: flex;
+    gap: 10px;
+}
+.fila.tres .columna label {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.fila.tres .columna.dos {
+    display: flex;
+    justify-content: end;
+}
+.fila.tres .columna.dos input {
+    width: 560px;
+}
+
+.fila.cuatro {
+    display: flex;
+    flex-direction: column;
+}
+.fila.cuatro input {
+    width: 855px;
+}
+
+.contenedor-boton {
+    /* border: 2px solid red; */
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.contenedor-boton button {
+    margin-right: 16px;
+    padding: 8px;
+    border: 1px solid #2C292D;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #FDF9F3;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+}
+.contenedor-boton button:active {
+    transform: scale(0.90); /* Reducir tamano un 5% */
+    background-color: #f9eddc;
+}
