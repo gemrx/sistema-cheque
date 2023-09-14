@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <script src=assets/js/code.jquery.com_jquery-3.7.1.min.js></script>
+    <script src="assets/js/script.js" defer></script>
+    <title>Sistema Cheque</title>
 </head>
 <body>
     <main>
@@ -37,9 +40,6 @@
                     <label for="descripcion">Descripcion de gasto</label>
                     <input type="text" id="descripcion" name="descripcion">
                 </div>
-                <!-- <div class="contenedor-boton">
-                    <button type="submit">Submit</button>
-                </div> -->
             </div>
         </form>
     </main>
