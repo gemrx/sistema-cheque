@@ -43,6 +43,11 @@ input {
 input:focus {
     border-width: 2px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 label {
     /* border: 2px solid red; */
