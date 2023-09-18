@@ -12,7 +12,7 @@
         }
         $indiceDecena = floor($numero / 10);
         $unidad = $numero % 10;
-        if ($unidad === 0) {
+        if ($unidad == 0) {
             return "{$decenas[$indiceDecena]}";
         }
         return "{$decenas[$indiceDecena]} y " . unidadHaciaLetras($unidad);
@@ -20,12 +20,12 @@
     
     function centenasHaciaLetras($numero) {
         $centenas = ["", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"];
-        if ($numero === 100) {
+        if ($numero == 100) {
             return "cien";
         }
         $indiceCentena = floor($numero / 100);
         $resto = $numero % 100;
-        if ($resto === 0) {
+        if ($resto == 0) {
             return $centenas[$indiceCentena];
         }
         if ($resto >= 1 && $resto <= 9) {
@@ -42,12 +42,12 @@
         } else if ($numero >= 100 && $numero <= 999) {
             return centenasHaciaLetras($numero);
         } else if ($numero >= 1000 && $numero <= 999999) {
-            if ($numero === 1000) {
+            if ($numero == 1000) {
                 return "mil";
             }
             $miles = floor($numero / 1000);
             $resto = $numero % 1000;
-            if ($resto === 0) {
+            if ($resto == 0) {
                 return numeroHaciaLetras($miles) . " mil";
             }
             if ($numero >= 1000 && $numero <= 1999) {
@@ -55,12 +55,12 @@
             }
             return numeroHaciaLetras($miles) . " mil " . numeroHaciaLetras($resto);
         } else if ($numero >= 1000000 && $numero <= 999999999999) {
-            if ($numero === 1000000) {
+            if ($numero == 1000000) {
                 return '1 millón';
             }
             $millones = floor($numero / 1000000);
             $resto = $numero % 1000000;
-            if ($resto === 0) {
+            if ($resto == 0) {
                 return numeroHaciaLetras($millones) . " millones";
             }
             if ($numero >= 1000000 && $numero <= 1999999) {
@@ -72,8 +72,20 @@
         }
     }
     
-    $numero = $_POST['monto']; // obetner el dato del post rquest
-    $numero = (int)$numero; // convertir el dato a numero
-    $letras = numeroHaciaLetras($numero); // converti el dato a letra
-    echo $letras; // enviar el resultado como response
+    $numeroString = $_POST['monto']; // obtener el dato del post request
+    $resultado;
+
+    if (strpos($numeroString, '.') !== false) {
+        // si el numero contiene decimales, separar el numero en dos partes
+        $numeroPartes = explode('.', $numeroString);
+        $entero = $numeroPartes[0];
+        $decimal = $numeroPartes[1];
+        $enteroLetras = numeroHaciaLetras($entero); // convertir solo la parte entera a letras
+        $resultado = $enteroLetras . " con $decimal / 100";
+    } else {
+        $numero = (int)$numeroString;
+        $numeroLetras = numeroHaciaLetras($numero);
+        $resultado = $numeroLetras . ' con 0 / 100';
+    }
+    echo $resultado; // enviar el resultado como response
 ?>
