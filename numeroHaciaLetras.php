@@ -80,12 +80,13 @@
         $numeroPartes = explode('.', $numeroString);
         $entero = $numeroPartes[0];
         $decimal = $numeroPartes[1];
-        $enteroLetras = numeroHaciaLetras($entero); // convertir solo la parte entera a letras
-        $resultado = $enteroLetras . " con $decimal / 100";
+        $enteroLetras = numeroHaciaLetras($entero); // convertir la perte entera a letras
+        $decimalLetras = numeroHaciaLetras($decimal); // convertir la parte decimal a letras
+        $resultado = "$enteroLetras balboas con $decimalLetras centavos";
     } else {
         $numero = (int)$numeroString;
         $numeroLetras = numeroHaciaLetras($numero);
-        $resultado = $numeroLetras . ' con 0 / 100';
+        $resultado = $numeroLetras . ' balboas';
     }
-    echo $resultado; // enviar el resultado como response
+    echo $resultado; // enviar el resultado de la conversion como response
 ?>
