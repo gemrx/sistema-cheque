@@ -1,6 +1,6 @@
 <?php
     function unidadHaciaLetras($numero) {
-        $unidades = ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"];
+        $unidades = ["cero", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"];
         return $unidades[$numero];
     }
     
@@ -75,6 +75,7 @@
     $numeroString = $_POST['monto']; // obtener el dato del post request
     $resultado;
 
+
     if (strpos($numeroString, '.') !== false) {
         // si el numero contiene decimales, separar el numero en dos partes
         $numeroPartes = explode('.', $numeroString);
@@ -87,6 +88,9 @@
         $numero = (int)$numeroString;
         $numeroLetras = numeroHaciaLetras($numero);
         $resultado = $numeroLetras . ' balboas';
+
     }
+
+    
     echo $resultado; // enviar el resultado de la conversion como response
 ?>
