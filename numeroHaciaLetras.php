@@ -102,5 +102,6 @@
         $numeroLetras = numeroHaciaLetras($numeroString);
         $resultado = $numeroLetras . ' balboas';
     }
+
     echo $resultado; // enviar el resultado de la conversion como response
 ?>
