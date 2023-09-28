@@ -5,7 +5,7 @@
     }
     
     function decenasHaciaLetras($numero) {
-        $especiales = ["diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve", "veinte", "veintiuno", "veintidos", "veintitres", "veinticuatro", "veinticinco", "veintiseis", "veintisiete", "veintiocho", "veintinueve"];
+        $especiales = ["diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve", "veinte", "veintiun", "veintidos", "veintitres", "veinticuatro", "veinticinco", "veintiseis", "veintisiete", "veintiocho", "veintinueve"];
         $decenas = ["", "", "", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"];
         if ($numero >= 10 && $numero <= 29) {
             return $especiales[$numero - 10];
@@ -56,12 +56,12 @@
             return numeroHaciaLetras($miles) . " mil " . numeroHaciaLetras($resto);
         } else if ($numero >= 1000000 && $numero <= 999999999999) {
             if ($numero == 1000000) {
-                return 'un millón';
+                return 'un millón de';
             }
             $millones = floor($numero / 1000000);
             $resto = $numero % 1000000;
             if ($resto == 0) {
-                return numeroHaciaLetras($millones) . " millones";
+                return numeroHaciaLetras($millones) . " millones de";
             }
             if ($numero >= 1000000 && $numero <= 1999999) {
                 return "un millón " . numeroHaciaLetras($resto);
