@@ -1,6 +1,6 @@
 <?php
     function unidadHaciaLetras($numero) {
-        $unidades = ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"];
+        $unidades = ["cero", "un", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"];
         return $unidades[$numero];
     }
     
@@ -56,7 +56,7 @@
             return numeroHaciaLetras($miles) . " mil " . numeroHaciaLetras($resto);
         } else if ($numero >= 1000000 && $numero <= 999999999999) {
             if ($numero == 1000000) {
-                return '1 millón';
+                return 'un millón';
             }
             $millones = floor($numero / 1000000);
             $resto = $numero % 1000000;
@@ -75,17 +75,31 @@
     $numeroString = $_POST['monto']; // obtener el dato del post request
     $resultado;
 
+    // si el numero contiene decimales
     if (strpos($numeroString, '.') !== false) {
-        // si el numero contiene decimales, separar el numero en dos partes
+        // separar el numero en dos partes
         $numeroPartes = explode('.', $numeroString);
         $entero = $numeroPartes[0];
         $decimal = $numeroPartes[1];
-        $enteroLetras = numeroHaciaLetras($entero); // convertir la perte entera a letras
-        $decimalLetras = numeroHaciaLetras($decimal); // convertir la parte decimal a letras
-        $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+        if ($decimal == '00') {
+            $numeroLetras = numeroHaciaLetras($entero);
+            $resultado = $numeroLetras . ' balboas';
+        } else if (strlen($decimal) == 1) {
+            $decimal = $decimal . '0';
+            $enteroLetras = numeroHaciaLetras($entero); 
+            $decimalLetras = numeroHaciaLetras($decimal); 
+            $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+        } else if ($decimal[0] == '0' and $decimal[1] != '0') {
+            $enteroLetras = numeroHaciaLetras($entero);
+            $decimalLetras = numeroHaciaLetras($decimal[1]); 
+            $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+        } else {
+            $enteroLetras = numeroHaciaLetras($entero); 
+            $decimalLetras = numeroHaciaLetras($decimal); 
+            $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+        }
     } else {
-        $numero = (int)$numeroString;
-        $numeroLetras = numeroHaciaLetras($numero);
+        $numeroLetras = numeroHaciaLetras($numeroString);
         $resultado = $numeroLetras . ' balboas';
     }
     echo $resultado; // enviar el resultado de la conversion como response
