@@ -1,3 +1,4 @@
+
 const monto = document.querySelector('#monto');
 
 monto.addEventListener('keydown', (event) => {
