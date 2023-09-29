@@ -1,3 +1,4 @@
+
 const monto = document.querySelector('#monto');
 const montoLetras = document.querySelector('#monto-letra');
 const inputFecha =  document.querySelector('#fecha');

@@ -16,7 +16,7 @@
                 <div class="fila uno">
                     <div class="columna uno">
                         <label for="numero-cheque">Número de cheque</label>
-                        <input type="number" id="numero-cheque" name="numero-cheque" min="0">
+                        <input type="number" id="numero-cheque" name="numero-cheque"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                     </div>
                     <div class="columna dos">
                         <label for="fecha">Fecha</label>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="fila dos">
                     <label for="destinatario">Paguese a la orden de</label>
-                    <input type="text" id="destinatario" name="destinatario">
+                    <input type="text" id="destinatario" name="destinatario"onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"  />
                 </div>  
                 <div class="fila tres">
                     <div class="columna uno">
