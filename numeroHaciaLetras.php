@@ -72,7 +72,7 @@
         }
     }
     
-    $numeroString = $_POST['monto']; // obtener el dato del post request
+    $numeroString = $_POST['input-monto']; // obtener el dato del post request
     $resultado;
 
     // si el numero contiene decimales
@@ -105,7 +105,7 @@
             if ($enteroLetras == 'un') {
                 $resultado = ($decimalLetras == 'un') ? "un balboa con un centavo" : "un balboa con $decimalLetras centavos";
             } else {
-                $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+                $resultado = ($decimalLetras == 'un') ? "$enteroLetras balboas con un centavo" : "$enteroLetras balboa con $decimalLetras centavos";
             }
         } else {
             $enteroLetras = numeroHaciaLetras($entero); 

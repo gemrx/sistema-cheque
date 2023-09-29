@@ -15,25 +15,25 @@
             <div class="contenido">
                 <div class="fila uno">
                     <div class="columna uno">
-                        <label for="numero-cheque">Número de cheque</label>
-                        <input type="number" id="numero-cheque" name="numero-cheque"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                        <label for="input-cheque">Número de cheque</label>
+                        <input type="number" id="input-cheque" name="numero-cheque"/>
                     </div>
                     <div class="columna dos">
-                        <label for="fecha">Fecha</label>
-                        <input type="date" id="fecha" name="fecha">
+                        <label for="input-fecha">Fecha</label>
+                        <input type="date" id="input-fecha" name="input-fecha">
                     </div>
                 </div>
                 <div class="fila dos">
-                    <label for="destinatario">Paguese a la orden de</label>
-                    <input type="text" id="destinatario" name="destinatario"onkeypress="return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))"  />
+                    <label for="input-beneficiario">Paguese a la orden de</label>
+                    <input type="text" id="input-beneficiario" name="input-beneficiario"/>
                 </div>  
                 <div class="fila tres">
                     <div class="columna uno">
-                        <label for="monto">La suma de</label>
-                        <input type="number" id="monto" name="monto" min="0">
+                        <label for="input-monto">La suma de</label>
+                        <input type="number" id="input-monto" name="input-monto" min="0">
                     </div>
                     <div class="columna dos">
-                        <input type="text" id="monto-letra" name="monto-letra" disabled>
+                        <input type="text" id="input-monto-letra" name="input-monto-letra" disabled>
                     </div>
                 </div>
                 <div class="fila cuatro">
