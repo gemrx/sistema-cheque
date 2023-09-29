@@ -77,30 +77,52 @@
 
     // si el numero contiene decimales
     if (strpos($numeroString, '.') !== false) {
+
         // separar el numero en dos partes
         $numeroPartes = explode('.', $numeroString);
         $entero = $numeroPartes[0];
         $decimal = $numeroPartes[1];
+
         if ($decimal == '00') {
             $numeroLetras = numeroHaciaLetras($entero);
-            $resultado = $numeroLetras . ' balboas';
+            if ($numeroLetras === "un") {
+                $resultado = $numeroLetras . ' balboa';
+            } else {
+                $resultado = $numeroLetras . ' balboas';
+            }
         } else if (strlen($decimal) == 1) {
             $decimal = $decimal . '0';
             $enteroLetras = numeroHaciaLetras($entero); 
             $decimalLetras = numeroHaciaLetras($decimal); 
-            $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+            if ($enteroLetras == 'un') {
+                $resultado = "un balboa con $decimalLetras centavos";
+            } else {
+                $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+            }
         } else if ($decimal[0] == '0' and $decimal[1] != '0') {
             $enteroLetras = numeroHaciaLetras($entero);
             $decimalLetras = numeroHaciaLetras($decimal[1]); 
-            $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+            if ($enteroLetras == 'un') {
+                $resultado = ($decimalLetras == 'un') ? "un balboa con un centavo" : "un balboa con $decimalLetras centavos";
+            } else {
+                $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+            }
         } else {
             $enteroLetras = numeroHaciaLetras($entero); 
             $decimalLetras = numeroHaciaLetras($decimal); 
-            $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+            if ($enteroLetras == 'un') {
+                $resultado = "un balboa con $decimalLetras centavos";
+            } else {
+                $resultado = "$enteroLetras balboas con $decimalLetras centavos";
+            }
         }
     } else {
         $numeroLetras = numeroHaciaLetras($numeroString);
-        $resultado = $numeroLetras . ' balboas';
+        if ($numeroLetras === "un") {
+            $resultado = $numeroLetras . ' balboa';
+        } else {
+            $resultado = $numeroLetras . ' balboas';
+        }
     }
 
     echo $resultado; // enviar el resultado de la conversion como response
