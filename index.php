@@ -30,7 +30,7 @@
                 <div class="fila tres">
                     <div class="columna uno">
                         <label for="input-monto">La suma de</label>
-                        <input type="number" id="input-monto" name="input-monto" min="0">
+                        <input type="text" id="input-monto" name="input-monto" min="0">
                     </div>
                     <div class="columna dos">
                         <input type="text" id="input-monto-letra" name="input-monto-letra" disabled>

@@ -44,33 +44,32 @@ inputBeneficiario.addEventListener('keydown', (event) => {
 })
 
 inputMonto.addEventListener('keydown', (event) => {
-    if (event.key === 'e' || event.key === '-') {
-        event.preventDefault();
-    }
-
-    // Evitar mas de un cero a la izquierda
-    if (inputMonto.value === '0' && event.key === '0') {
-        event.preventDefault();
-    }
-
-    // Evitar mas de dos decimales
-    if (inputMonto.value.includes('.')) {
-        partesDelMonto = inputMonto.value.split('.');
-        parteDecimal = partesDelMonto[1];
-        if (parteDecimal.length === 2 && !isNaN(parseFloat(event.key))) {
+    if (!isNaN(parseFloat(event.key)) || event.key === '.' || event.key === 'Backspace' || event.key === 'Tab' || event.key === 'Enter' || event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        // evitra mas de un zero a la izquierda
+        if (inputMonto.value === '0' && !isNaN(parseFloat(event.key))) {
             event.preventDefault();
         }
-    }
-
-    if (event.key === 'Tab') {
-        if (inputMonto.value === '') {
-            inputMontoLetras.value = '';
-        } else {
-            convertirMontoHaciaLetras();
+        
+        // evitar mas de dos decimales
+        if (inputMonto.value.includes('.')) {
+            partesDelMonto = inputMonto.value.split('.');
+            parteDecimal = partesDelMonto[1];
+            if (parteDecimal.length === 2 && !isNaN(parseFloat(event.key))) {
+                event.preventDefault();
+            }
         }
-    }
 
-    
+        // hacer la conversion numero al presiona TAB
+        if (event.key === 'Tab') {
+            if (inputMonto.value === '') {
+                inputMontoLetras.value = '';
+            } else {
+                convertirMontoHaciaLetras();
+            }
+        }
+    } else {
+        event.preventDefault();
+    }    
 })
 
 document.addEventListener('keydown', (event) => {
