@@ -10,7 +10,7 @@ let fechaActual = new Date();
 let actualyear = fechaActual.getFullYear();
 let mesActual = String(fechaActual.getMonth() + 1).padStart(2, '0');
 let diaActual = String(fechaActual.getDate()).padStart(2, '0');
-inputFecha.value = `${actualyear}-${mesActual}-${diaActual}`;``
+inputFecha.value = `${actualyear}-${mesActual}-${diaActual}`;
 
 
 // FUNCIONES
@@ -18,9 +18,9 @@ inputFecha.value = `${actualyear}-${mesActual}-${diaActual}`;``
 function convertirMontoHaciaLetras() {
     // HTTP Request
     $.ajax({
-        type: "POST", //  tipo de request
+        method: "POST", //  tipo de request
         url: "/sistema-cheque/numeroHaciaLetras.php", // direccion a donde se enviara el request
-        data: $("form").serialize(), // datos que contendra el request
+        data: {monto: inputMonto.value}, // datos que contendra el request
         success: function(response){
             inputMontoLetras.value = response;
         }
@@ -74,7 +74,7 @@ inputMonto.addEventListener('keydown', (event) => {
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        // prevenir ingresar una fecha incorrecta   
+        // prevenir ingresar una fecha incorrecta 
         if (inputFecha.value === '') {
             window.alert('Por favor, ingresa una fecha válida');
         } 

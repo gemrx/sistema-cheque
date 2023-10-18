@@ -72,7 +72,7 @@
         }
     }
     
-    $numeroString = $_POST['input-monto']; // obtener el dato del post request
+    $numeroString = $_POST['monto']; // obtener el dato del post request
     $resultado;
 
     // si el numero contiene decimales
